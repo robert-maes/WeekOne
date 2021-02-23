@@ -43,8 +43,7 @@ public class GuessingGame {
 					System.out.println("Error: Your guess must be between 1-100");
 					guess = null;
 					inputScanner.nextLine();
-					continue;
-				};
+				}
 			}
 			// if the user's valid guess is within randomNumber +- 10, exit, they won
 			if (guess >= bottomRange && guess <= topRange) {
