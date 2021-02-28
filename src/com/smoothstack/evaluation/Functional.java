@@ -1,8 +1,6 @@
 package com.smoothstack.evaluation;
 
 import java.util.Arrays;
-import java.util.function.BiFunction;
-import java.util.function.Function;
 
 /**
  * @author Rob Maes
@@ -12,43 +10,31 @@ public class Functional {
 
   /**
    * Takes an integer array and returns a new integer array containing only the right-most digit for each int
+   * @param nums An array of integers
+   * @return A new array of integers containing only the right-most digit for each int
    */
-  public static Function<Integer[], Integer[]> rightDigit = value -> {
-    // create a new integer array of the same size
-    Integer[] temp = new Integer[value.length];
-    // loop through the existing array
-    for (int i = 0; i < value.length; i++) {
-      // assign n in the new array to n % 10 (right-most digit)
-      temp[i] = value[i] % 10;
-    }
-    return temp;
-  };
+  public static int[] rightDigit(int[] nums) {
+    return Arrays.stream(nums).map(num -> num % 10).toArray();
+  }
 
   /**
    * Takes an integer array and returns a new integer array containing each original int doubled
+   * @param nums An array of integers
+   * @return A new array of integers with the value of each int doubled
    */
-  public static Function<Integer[], Integer[]> doubling = value -> {
-    // create a new integer array of the same size
-    Integer[] temp = new Integer[value.length];
-    // loop through the existing array
-    for (int i = 0; i < value.length; i++) {
-      // assign n in the new array to n * 2 (doubled)
-      temp[i] = value[i] * 2;
-    }
-    return temp;
-  };
+  public static int[] doubling(int[] nums) {
+    return Arrays.stream(nums).map(num -> num * 2).toArray();
+  }
 
   /**
    * Takes a string array and returns a new string array containing each string with all 'x' characters removed
+   * @param strings An array of strings
+   * @return A new array of strings with all 'x' characters removed
    */
-  public static Function<String[], String[]> noX = value -> {
-    // create a new string array of the same size
-    String[] temp = new String[value.length];
-    // loop through the existing array
-    for (int i = 0; i < value.length; i++) {
-      // assign s in the new array to s with all 'x' chars removed
-      temp[i] = value[i].replace("x", "");
-    }
-    return temp;
-  };
+  public static String[] noX(String[] strings) {
+    return Arrays
+      .stream(strings)
+      .map(str -> str.replace("x", ""))
+      .toArray(String[]::new);
+  }
 }

@@ -67,12 +67,16 @@ public class Lambdas {
 
     // initialize the number of test cases
     int numTestCases = 0;
+    System.out.println(
+      "Please enter the number of tests you wish to perform: "
+    );
     Scanner input = new Scanner(System.in);
     // attempt to parse the number of test cases from the user
     // if the number of test cases cannot be parsed, exit with an error
     try {
       numTestCases = input.nextInt();
     } catch (Exception e) {
+      System.out.println("Invalid input. Please restart to try again.");
       System.exit(1);
     }
     // flush the input
@@ -82,11 +86,13 @@ public class Lambdas {
       // attempt to extract the op ID and op input for each case
       int operation = 0;
       int number = 0;
+      System.out.println("Please enter a test (OPERATION INPUT): ");
       try {
         operation = input.nextInt();
         number = input.nextInt();
       } catch (Exception ex) {
         // exit with an error if unable to parse
+        System.out.println("Invalid input. Please restart to try again.");
         System.exit(1);
       }
       // flush the input
