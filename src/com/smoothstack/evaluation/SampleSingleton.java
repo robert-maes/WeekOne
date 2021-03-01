@@ -41,7 +41,8 @@ public class SampleSingleton { // remove static modifier from class definition h
   }
 
   // throw SQLException, it is better handled in the calling code
-  public static void databaseQuery(BigDecimal input) throws SQLException {
+  public static synchronized void databaseQuery(BigDecimal input)
+    throws SQLException {
     Statement st = conn.createStatement();
     ResultSet rs = st.executeQuery("select id from table");
     // change x from int to BigInt
